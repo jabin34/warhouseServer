@@ -35,9 +35,9 @@ app.get('/inventory/:id',async(req,res)=>{
     const inventory = await inventoryCollection.findOne(query);
     res.send(inventory);
 });
-//POST
+//quantity decrease //quantityadd
 app.put('/inventory/:id',async(req,res)=>{
-     const id = req.params.id;
+    const id = req.params.id;
     const data = req.body;
     const filter = {_id:ObjectId(id)};
     const option = {upsert:true};
@@ -48,7 +48,13 @@ app.put('/inventory/:id',async(req,res)=>{
     console.log('data->',data);
     res.send({result});
 })
-
+//Delete 
+app.delete('/inventory/:id',async(req,res)=>{
+    const id  = req.params.id;
+    const query = {_id:ObjectId(id)};
+    const result = await inventoryCollection.deleteOne(query);
+    res.send(result);
+});
 
 }finally{
    
