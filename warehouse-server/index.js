@@ -61,7 +61,15 @@ app.post('/inventory',async(req,res)=>{
     const result = await inventoryCollection.insertOne(additem);
     res.send(result);
 });
-
+//myitem
+app.get('/myItem',async(req,res)=>{
+const email = req.query.email;  
+ console.log(email); 
+const query = {email:email};
+const cursor = inventoryCollection.find(query);
+const item = await cursor.toArray();
+res.send(item);
+});
 }finally{
    
 }
