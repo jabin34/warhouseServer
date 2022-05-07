@@ -46,7 +46,7 @@ const inventoryCollection = client.db('warehouse').collection('inventory');
 app.post('/login',async(req,res)=>{
  const user = req.body;
  const token = jwt.sign(user,process.env.TOKEN_SECRET,{
-     expiresIn:'1d'
+     expiresIn:'19d'
  });
  res.send({token});
 })
