@@ -89,7 +89,7 @@ app.post('/inventory',async(req,res)=>{
     const result = await inventoryCollection.insertOne(additem);
     res.send(result);
 });
-//my item api
+//my item api 
 app.get('/myItem',verifyJWT,async(req,res)=>{
 const decodedEmail = req.decoded.email;
 const email = req.query.email; 
@@ -104,7 +104,7 @@ else{
 }
 });
 }finally{
-   
+   console.log('testing');
 }
 
 }
